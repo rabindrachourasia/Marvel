@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProductListCell" rowHeight="291" id="KGk-i7-Jjw" customClass="ProductListCell" customModule="Marvel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="574" height="291"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="574" height="291"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKj-Rw-ppg">
+                        <rect key="frame" x="10" y="10" width="554" height="271"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvelcon" translatesAutoresizingMaskIntoConstraints="NO" id="xZN-aN-jCy">
+                                <rect key="frame" x="12" y="12" width="530" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="jOM-I2-gZA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9y-Xg-dxq">
+                                <rect key="frame" x="12" y="170" width="530" height="89"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" red="0.10196078431372549" green="0.13333333333333333" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="K9y-Xg-dxq" secondAttribute="bottom" constant="12" id="3pH-CA-HAe"/>
+                            <constraint firstItem="K9y-Xg-dxq" firstAttribute="leading" secondItem="fKj-Rw-ppg" secondAttribute="leading" constant="12" id="6PJ-a7-F3H"/>
+                            <constraint firstAttribute="trailing" secondItem="xZN-aN-jCy" secondAttribute="trailing" constant="12" id="Doi-V4-Rpy"/>
+                            <constraint firstItem="xZN-aN-jCy" firstAttribute="leading" secondItem="fKj-Rw-ppg" secondAttribute="leading" constant="12" id="Ugc-eq-9XN"/>
+                            <constraint firstAttribute="trailing" secondItem="K9y-Xg-dxq" secondAttribute="trailing" constant="12" id="Vlk-qM-jVc"/>
+                            <constraint firstItem="xZN-aN-jCy" firstAttribute="top" secondItem="fKj-Rw-ppg" secondAttribute="top" constant="12" id="cO8-Zu-55Q"/>
+                            <constraint firstItem="K9y-Xg-dxq" firstAttribute="top" secondItem="xZN-aN-jCy" secondAttribute="bottom" constant="8" id="cgi-AN-PtO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fKj-Rw-ppg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4BX-Xg-6xg"/>
+                    <constraint firstAttribute="trailing" secondItem="fKj-Rw-ppg" secondAttribute="trailing" constant="10" id="Kcn-vX-Dyv"/>
+                    <constraint firstAttribute="bottom" secondItem="fKj-Rw-ppg" secondAttribute="bottom" constant="10" id="qw8-uK-Fh8"/>
+                    <constraint firstItem="fKj-Rw-ppg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rmp-HB-XxZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cardView" destination="fKj-Rw-ppg" id="CMi-Mg-gRY"/>
+                <outlet property="characterImg" destination="xZN-aN-jCy" id="H5k-na-aNa"/>
+                <outlet property="characterName" destination="K9y-Xg-dxq" id="Fjd-IL-DQ4"/>
+            </connections>
+            <point key="canvasLocation" x="139.13043478260872" y="159.70982142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Marvelcon" width="1250" height="494"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
