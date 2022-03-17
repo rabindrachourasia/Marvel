@@ -7,13 +7,9 @@
 
 import Foundation
 class MarvelDetailsViewModel: NSObject, BaseViewModel {
-
-   // private let networkManager : NetworkRequest = .init(.init())
-
     var onSuccess: (() -> Void)?
     var onFailure: ((_ type: ErrorType) -> Void)?
-
-    var marvalDetails : [MarvelListResult] = []{
+    var marvelCharacterDetails : [MarvelListResult] = []{
         didSet{
             onSuccess?()
         }
@@ -21,11 +17,10 @@ class MarvelDetailsViewModel: NSObject, BaseViewModel {
     override init() {
         super.init()
     }
-
     func getListDetails(id: Int){
         networkManager.details(id: id) { [weak self] (result) in
             self?.handleResult(result: result, success: { (detailsData) in
-                self?.marvalDetails = detailsData.data?.results ?? []
+                self?.marvelCharacterDetails = detailsData.data?.results ?? []
             }, failure: self?.onFailure)
         }
     }

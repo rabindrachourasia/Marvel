@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKj-Rw-ppg">
                         <rect key="frame" x="10" y="10" width="554" height="271"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvelcon" translatesAutoresizingMaskIntoConstraints="NO" id="xZN-aN-jCy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xZN-aN-jCy">
                                 <rect key="frame" x="12" y="12" width="530" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="jOM-I2-gZA"/>
@@ -62,7 +62,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Marvelcon" width="1250" height="494"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

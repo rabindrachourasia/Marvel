@@ -8,19 +8,18 @@
 import UIKit
 
 class MarvelCharacterDetailsViewController: UIViewController {
-
-    @IBOutlet weak var characterDescription: UILabel!
-    @IBOutlet weak var characterName: UILabel!
-    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet private weak var characterDescription: UILabel!
+    @IBOutlet private weak var characterName: UILabel!
+    @IBOutlet private weak var productImage: UIImageView!
     var model : [MarvelListResult]? = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         dataLoad()
     }
+    
     func dataLoad(){
-        guard let data = model, data.count > 0  else { return }
+       guard let data = model, data.count > 0  else { return }
         if let name = model?[0].name{
             characterName.text = name
             self.title = name

@@ -8,7 +8,6 @@
 import Foundation
 import CryptoKit
 protocol Md5Hash {
-    //func hashKey() -> (ts: String, key: String)
 }
 
 extension Md5Hash{
