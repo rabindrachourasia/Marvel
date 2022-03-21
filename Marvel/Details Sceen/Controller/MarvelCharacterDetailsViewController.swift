@@ -12,14 +12,14 @@ class MarvelCharacterDetailsViewController: UIViewController {
     @IBOutlet private weak var characterName: UILabel!
     @IBOutlet private weak var productImage: UIImageView!
     var model : [MarvelListResult]? = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataLoad()
     }
     
     func dataLoad(){
-       guard let data = model, data.count > 0  else { return }
+        guard let data = model, data.count > 0  else { return }
         if let name = model?[0].name{
             characterName.text = name
             self.title = name
@@ -34,5 +34,4 @@ class MarvelCharacterDetailsViewController: UIViewController {
     deinit {
         debugPrint(String(describing: MarvelCharacterDetailsViewController.self))
     }
-
 }

@@ -31,7 +31,7 @@ struct MarvelListResult: Codable {
     let stories: MarvelListStories?
     let events: MarvelListComics?
     let urls: [MarvelListURL]?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
         case resultDescription = "description"
@@ -71,7 +71,7 @@ struct MarvelListStoriesItem: Codable {
 struct MarvelListThumbnail: Codable {
     let path: String?
     let thumbnailExtension: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case path
         case thumbnailExtension = "extension"

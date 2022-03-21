@@ -9,6 +9,7 @@
 import UIKit
 
 class DashBoardViewController: UIViewController, AlertPresenter {
+    
     @IBOutlet private weak var listTableView: UITableView!
     private var viewModel : MarvelCharacterListViewModel = MarvelCharacterListViewModel()
     private var detailsViewModel : MarvelDetailsViewModel = MarvelDetailsViewModel()
@@ -44,15 +45,15 @@ class DashBoardViewController: UIViewController, AlertPresenter {
         self.listTableView.register(UINib.init(nibName: loadercellName, bundle: .main), forCellReuseIdentifier: loadercellName)
         
     }
-   private func pulltoRefreshSetup(){
+    private func pulltoRefreshSetup(){
         pullControl.backgroundColor = UIColor.clear
         pullControl.tintColor = UIColor.black
         pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
-            if #available(iOS 10.0, *) {
-                listTableView.refreshControl = pullControl
-                } else {
-                    listTableView.addSubview(pullControl)
-            }
+        if #available(iOS 10.0, *) {
+            listTableView.refreshControl = pullControl
+        } else {
+            listTableView.addSubview(pullControl)
+        }
     }
     
     //MARK:- Pull to Refresh Actions
@@ -64,8 +65,7 @@ class DashBoardViewController: UIViewController, AlertPresenter {
         loadCharacterListData()
     }
     
-    
-   private func loadCharacterListData(){
+    private func loadCharacterListData(){
         if !loadingStatus {
             loadingStatus = true
             spinner.startAnimating()
@@ -74,7 +74,7 @@ class DashBoardViewController: UIViewController, AlertPresenter {
         }
     }
     
-   private func apiresponseSetup(){
+    private func apiresponseSetup(){
         viewModel.onSuccess = { [weak self] in
             DispatchQueue.main.async {
                 guard let data = self?.viewModel.marvelList, data.count > 0 else {
@@ -91,10 +91,10 @@ class DashBoardViewController: UIViewController, AlertPresenter {
         
         viewModel.onFailure = { [weak self] netError in
             DispatchQueue.main.async {
-            self?.loadingStatus = false
-            self?.spinner.stopAnimating()
-            self?.listTableView.reloadData()
-            self?.listTableView.backgroundView = nil
+                self?.loadingStatus = false
+                self?.spinner.stopAnimating()
+                self?.listTableView.reloadData()
+                self?.listTableView.backgroundView = nil
                 switch netError{
                 case ErrorType.noInternet:
                     self?.showErrorAlert(message: Constants.alertMsg.no_internet)
@@ -113,10 +113,10 @@ extension DashBoardViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return marvelList.count
-           } else if section == 1 {
+        } else if section == 1 {
             // loading cell
             return 1
-           } else {
+        } else {
             return 0
         }
     }
@@ -145,7 +145,7 @@ extension DashBoardViewController : UITableViewDelegate, UITableViewDataSource{
     {
         if indexPath.section == 0 {
             return UITableView.automaticDimension  //Item Cell height
-            } else {
+        } else {
             return 55 //Loading Cell height
         }
     }
@@ -166,9 +166,9 @@ extension DashBoardViewController : UITableViewDelegate, UITableViewDataSource{
 //MARK:- UIScrollViewDelegate
 extension DashBoardViewController : UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-            let offsetY = scrollView.contentOffset.y
-            let contentHeight = scrollView.contentSize.height
-            if offsetY > contentHeight - scrollView.frame.size.height {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY > contentHeight - scrollView.frame.size.height {
             offset += 1
             loadCharacterListData()
             self.listTableView.reloadData()

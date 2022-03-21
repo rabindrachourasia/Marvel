@@ -7,10 +7,10 @@
 
 import Foundation
 class MarvelCharacterListViewModel: NSObject, BaseViewModel {
-
+    
     var onSuccess: (() -> Void)?
     var onFailure: ((_ type: ErrorType) -> Void)?
-
+    
     var marvelList : [MarvelListResult] = []{
         didSet{
             onSuccess?()
@@ -19,7 +19,7 @@ class MarvelCharacterListViewModel: NSObject, BaseViewModel {
     override init() {
         super.init()
     }
-
+    
     func getMarvelList(offset: Int){
         networkManager.list(offset: offset) { [weak self] (result) in
             self?.handleResult(result: result, success: { (list) in
